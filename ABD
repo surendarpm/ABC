@@ -1,0 +1,27 @@
+AbD
+
+import torch
+import os
+
+# Define your model
+class YourModel(torch.nn.Module):
+    # Your model definition here
+
+# Instantiate your model
+model = YourModel()
+
+# Define the optimizer and loss function
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+criterion = torch.nn.CrossEntropyLoss()
+
+# Training loop
+num_epochs = 100
+save_interval = 10
+
+for epoch in range(num_epochs):
+    # Training code here
+
+    if (epoch + 1) % save_interval == 0:
+        checkpoint_name = f'model_epoch_{epoch + 1}.pth'
+        torch.save(model.state_dict(), checkpoint_name)
+        print(f"Model saved at epoch {epoch + 1} as {checkpoint_name}")
